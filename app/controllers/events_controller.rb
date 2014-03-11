@@ -1,9 +1,8 @@
 class EventsController < ApplicationController
   def index
-    @event = Event.all  
+    @event = Event.start_at_today  
   end
   
-
   def show
     @event = Event.find params[:id]
   end
