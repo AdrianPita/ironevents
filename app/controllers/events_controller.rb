@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @event = Event.start_at_today  
+    @events = Event.start_at_today  
   end
   
   def show
@@ -13,7 +13,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(create_params)
-    redirect_to @event
+    
+    if @event.save 
+      redirect_to @event
+    else 
+      render :new
+    end
   end
 
   def edit
