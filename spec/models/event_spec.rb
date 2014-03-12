@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Event do
+describe 'Event' do
 
 	describe 'name' do
 	  it 'should not be blank' do

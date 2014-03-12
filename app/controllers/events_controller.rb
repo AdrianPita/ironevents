@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
+  
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
-    @events = Event.start_at_today  
+    @events = Event.all
+    #Event.start_at_today es el ejercio de los test con los scope 
   end
   
   def show

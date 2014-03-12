@@ -1,6 +1,8 @@
 
 <H1>Crear Nuevo Evento</H1>
 
+<%= debug @event.errors %>
+
 <%= form_for @event do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
