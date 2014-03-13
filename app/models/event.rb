@@ -1,8 +1,15 @@
 class Event < ActiveRecord::Base
+	belongs_to :user
+
 	validates :name, presence: true, length: { maximum: 60 }
+	
 	validates :description, length: { minimum: 100 }, allow_blank: true
+	
 	validate :start_at_is_present
+	
 	validate :date_in_order
+	
+	validates :user, presence: true
 
 
 	scope :start_at_today, lambda {

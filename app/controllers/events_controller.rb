@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.start_at_today
     #Event.start_at_today es el ejercio de los test con los scope 
   end
   
@@ -17,7 +17,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(create_params)
-    
+    @event.user = current_user
+
     if @event.save 
       redirect_to @event
     else 

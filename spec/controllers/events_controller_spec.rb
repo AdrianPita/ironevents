@@ -73,6 +73,11 @@ describe EventsController do
 
 		end
 
+		before do 
+			@user = FactoryGirl.create(:user)
+			sign_in @user
+		end
+
 		it 'retuns the create function ' do
 			#attrs = FactoryGirl.attributes_for(:events)
 			#attrs = y los params

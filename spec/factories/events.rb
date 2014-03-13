@@ -6,6 +6,8 @@ FactoryGirl.define do
   	address "Plaza Mayor"
   	start_at 1.days.from_now
   	end_at 2.days.from_now
+
+  	association :user
   end
 end
 

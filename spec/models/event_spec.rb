@@ -93,11 +93,18 @@ describe 'Event' do
 	 end
 	end
 
-	describe 'next events in Madrid'
-	  it 'can not show different locations' do
-	    event = FactoryGirl.create(:event, address: 'Madrid' )
-	    expect(Event.next_events.location).not_to include(event)
-	  end
+	#describe 'next events in Madrid' do
+	  #it 'can not show different locations' do
+	    #event = FactoryGirl.create(:event, address: "Madrid")
+	    #expect(Event.next_events.location).not_to include(event)
+	  #end
+	#end
+
+	describe 'organization' do
+		it 'is mandatory' do
+			event = Event.new user: nil
+			expect(event).to have(1).error_on(:user)
+		end
 	end
 
 end
