@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  
+
+
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -13,11 +14,16 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    authorize @event 
   end
 
   def create
     @event = Event.create(create_params)
+    #porque hemos establecido que para crear un evento 
+    #tenermos que crear un usuario de ahi que haya que generar
+    #esto
     @event.user = current_user
+    authorize @event
 
     if @event.save 
       redirect_to @event
@@ -28,6 +34,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find params[:id]
+    authorize @event
   end
 
   def update

@@ -72,7 +72,7 @@ describe EventsController do
 	  	expect(request).to render_template(:index)
 
 		end
-
+		#al agregar autenticacion fue cuando se produjeron los fallos
 		before do 
 			@user = FactoryGirl.create(:user)
 			sign_in @user

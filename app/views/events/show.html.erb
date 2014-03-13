@@ -2,12 +2,10 @@
 <p>
   <b>Title:</b>
   <ul>
-  <% @events.each do |event| %>
   <li>
-  <%= event.name %> Event
+  <%= @event.name %> Event
   <br>
-  <%= event.address %> Address
+  <%= @event.address %> Address
 	</li>
-  <% end %>
   </ul>
 </p>
