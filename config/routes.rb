@@ -1,10 +1,25 @@
 Ironevents::Application.routes.draw do
   
   devise_for :users
-  
+  #Con get como lo tengo yo, lo que hace es por su posicion, marcar primero 
+  #su ruta, porque si lo colocase debajo, iria a show ya que no generaria su propia
+  #ruta search. Buscaria matchear otras antes.
   root :to => "events#index"
+ get 'events/search' => 'search#autocomplete'
+ #con collection lo que hago el lo mismo que con get, pero haciendolo asi
+ #rails sabe que tiene que darle prioridad correcta a lo que le estamos estableciendo
+ #member crear la url que le estamos pasando por medio de post o get, haria
+ #/events/id/publish. Se ejecuta sobre uno de los elementos, con collection se haria sobre todos.
+  resources :events #do
+    #collection do
+  #    get 'search'
+    #end
+  #end
+  
 
-  resources :events
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

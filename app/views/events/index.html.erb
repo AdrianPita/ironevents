@@ -1,4 +1,17 @@
 <h1>Events App</h1>
+<p>
+<%= text_field_tag "search" %>
+  
+  <ul>
+  	<% @events.each do |event| %>
+  	<li>
+  		<%= event.name %> Event
+  		<br>
+  		<%= event.address %> Address
+		</li>
+		<% end %>
+  </ul>
+</p>
 
 
 

@@ -4,12 +4,22 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @events = Event.start_at_today
+    @events = Event.all #start_at_today
     #Event.start_at_today es el ejercio de los test con los scope 
+    respond_to do |format|
+      format.html  #index.html.erb
+      format.json 
+    end
   end
   
   def show
     @event = Event.find params[:id]
+
+    respond_to do |format|
+      format.html  #show.html.erb
+      format.xml  { render xml: @event}
+      format.json { render json: @event}
+    end
   end
 
   def new
@@ -52,6 +62,9 @@ class EventsController < ApplicationController
   def destroy
   end
 
+  #Autosearch
+  #def search
+  #@events = Events.name_controller
   private
 
   def create_params 

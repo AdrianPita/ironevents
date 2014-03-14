@@ -15,6 +15,12 @@ class Event < ActiveRecord::Base
 	scope :start_at_today, lambda {
 	where (["start_at = ?", Date.today]) }
 
+	#Scope del autosearch
+	#scope :name_like lamba { |name|
+	#where (["name like ? OR description like?","#{params[:term]}%"])
+
+
+
 	def self.next_events
 		where (["start_at > ?", Date.today])
 	end
