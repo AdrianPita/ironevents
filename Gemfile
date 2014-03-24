@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
+ruby '1.9.3'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -35,7 +37,9 @@ gem 'pundit'
 
 gem 'jquery-ui-rails'
 
+group :production do
 gem 'rails_12factor'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
